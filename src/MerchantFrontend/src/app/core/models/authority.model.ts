@@ -1,5 +1,5 @@
 export interface Authority {
-    id: string;
-    name: string;
-    domain: string;
+  id: number;
+  name: string;
+  domain: string;
 }
