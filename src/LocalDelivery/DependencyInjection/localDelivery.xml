@@ -14,5 +14,19 @@
             <tag name="shopware.entity.definition" entity="delivery_package"/>
         </service>
 
+        <service id="Shopware\Production\LocalDelivery\DeliveryRoute\DeliveryRouteDefinition">
+            <tag name="shopware.entity.definition" entity="delivery_package"/>
+        </service>
+
+<!--        Controllers-->
+        <service id="Shopware\Production\LocalDelivery\DeliveryRoute\Api\DeliveryRouteController" public="true">
+            <argument type="service" id="Shopware\Production\LocalDelivery\DeliveryRoute\Services\MapboxService"/>
+        </service>
+
+
+<!--        Services-->
+        <service id="Shopware\Production\LocalDelivery\DeliveryRoute\Services\MapboxService">
+        </service>
+
     </services>
 </container>
