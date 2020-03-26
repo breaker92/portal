@@ -20,7 +20,7 @@ class SalesChannelContextExtension extends Struct
         $salesChannelContext->addExtension(self::NAME, new self($merchant));
     }
 
-    public static function extract(SalesChannelContext $salesChannelContext): self
+    public static function extract(SalesChannelContext $salesChannelContext): MerchantEntity
     {
         $extension = $salesChannelContext->getExtension(self::NAME);
 
@@ -28,11 +28,16 @@ class SalesChannelContextExtension extends Struct
             throw new CustomerNotLoggedInException();
         }
 
-        return $extension;
+        return $extension->getMerchant();
     }
 
     public function __construct(MerchantEntity $merchant)
     {
         $this->merchant = $merchant;
+    }
+
+    public function getMerchant()
+    {
+        return $this->merchant;
     }
 }
