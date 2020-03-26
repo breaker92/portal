@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Merchant, MerchantRegistration } from '../models/merchant.model';
 import { Product } from '../models/product.model';
@@ -60,6 +60,11 @@ export class MerchantApiService {
   // authority route
 
   getAuthorities(): Observable<Authority[]> {
-      return this.http.get<Authority[]>(this.apiUrl + '/merchant-api/authorities');
+      // return this.http.get<Authority[]>(this.apiUrl + '/merchant-api/authorities');
+      return of([
+        { name: 'Gemeinde Heek', domain: 'heek.sw-portal.com', id: 1 },
+        { name: 'Gemeinde Schöppingen', domain: 'schoeppingen.sw-portal.com', id: 1 },
+        { name: 'Zentrum Münster', domain: 'zentrum-muenster.sw-portal.com', id: 1 },
+      ])
   }
 }
