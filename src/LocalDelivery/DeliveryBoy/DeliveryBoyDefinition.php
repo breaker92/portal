@@ -51,12 +51,11 @@ class DeliveryBoyDefinition extends EntityDefinition
             (new PasswordField('password', 'password'))->addFlags(new ReadProtected(SalesChannelApiSource::class, AdminApiSource::class)),
             (new StringField('email', 'email'))->addFlags(new Required()),
             new BoolField('active', 'active'),
-            (new StringField('zipcode', 'zipcode'))->addFlags(new Required()),
+            (new StringField('zipcode', 'zipCode'))->addFlags(new Required()),
             (new StringField('city', 'city'))->addFlags(new Required()),
             (new StringField('street', 'street'))->addFlags(new Required()),
             (new StringField('phone_number', 'phoneNumber'))->addFlags(new Required()),
 
-            new FkField('delivery_package_id', 'deliveryPackageId', DeliveryPackageDefinition::class),
             new OneToManyAssociationField('deliveryPackages', DeliveryPackageDefinition::class, 'delivery_package_id'),
         ]);
     }

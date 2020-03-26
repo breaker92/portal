@@ -9,7 +9,7 @@ namespace Shopware\Production\LocalDelivery\DeliveryBoy;
 
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
-use Shopware\Production\LocalDelivery\DeliveryPackage\DeliveryPackageEntity;
+use Shopware\Production\LocalDelivery\DeliveryPackage\DeliveryPackageCollection;
 
 class DeliveryBoyEntity extends Entity
 {
@@ -48,7 +48,7 @@ class DeliveryBoyEntity extends Entity
     /**
      * @var string
      */
-    protected $zipcode;
+    protected $zipCode;
 
     /**
      * @var string
@@ -66,7 +66,7 @@ class DeliveryBoyEntity extends Entity
     protected $phoneNumber;
 
     /**
-     * @var DeliveryPackageEntity[]
+     * @var DeliveryPackageCollection
      */
     protected $deliveryPackages;
 
@@ -130,14 +130,14 @@ class DeliveryBoyEntity extends Entity
         $this->active = $active;
     }
 
-    public function getZipcode(): string
+    public function getZipCode(): string
     {
-        return $this->zipcode;
+        return $this->zipCode;
     }
 
-    public function setZipcode(string $zipcode): void
+    public function setZipCode(string $zipCode): void
     {
-        $this->zipcode = $zipcode;
+        $this->zipCode = $zipCode;
     }
 
     public function getCity(): string
@@ -170,7 +170,7 @@ class DeliveryBoyEntity extends Entity
         $this->phoneNumber = $phoneNumber;
     }
 
-    public function getDeliveryPackages(): array
+    public function getDeliveryPackages(): DeliveryPackageCollection
     {
         return $this->deliveryPackages;
     }
