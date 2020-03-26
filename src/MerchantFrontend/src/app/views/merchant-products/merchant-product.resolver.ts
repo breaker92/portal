@@ -11,7 +11,8 @@ export class MerchantProductResolver implements Resolve<Product> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product> {
-
+    console.log('resolver');
+    console.log(route.params);
     if (!route.params.id) {
       return new Observable(subscriber => subscriber.error('No product id provided!'));
     }
@@ -21,8 +22,6 @@ export class MerchantProductResolver implements Resolve<Product> {
     } else {
       return new Observable(subscriber => subscriber.error('Product id is not a number!'));
     }
-
-
   }
 
 }
